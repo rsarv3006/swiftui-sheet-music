@@ -38,15 +38,7 @@ public struct Measure: View {
                         path.addLines(measureSpacing.measureStartPointArray)
                     }
                     
-                    if clefToShow == .BassClef {
-                        BassClef(measureSpacing: measureSpacing)
-                    } else if clefToShow == .TrebleClef {
-                        TrebleClef(measureSpacing: measureSpacing)
-                    } else if clefToShow == .TenorClef {
-                        TenorClef(measureSpacing: measureSpacing)
-                    } else if clefToShow == .AltoClef {
-                        AltoClef(measureSpacing: measureSpacing)
-                    }
+                    ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing)
 
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
@@ -57,8 +49,7 @@ public struct Measure: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HStack (spacing: 0) {
-            Measure(clefToShow: .AltoClef)
-
+            Measure(clefToShow: .PercussionClef)
         }.padding()
     }
 }

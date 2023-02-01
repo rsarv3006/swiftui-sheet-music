@@ -12,5 +12,6 @@ public enum ClefNameVariant: String {
     case TrebleClef = "clef_treble"
     case TenorClef = "clef_tenor"
     case AltoClef = "clef_alto"
+    case PercussionClef = "clef_percussion"
     case none = "none"
 }
