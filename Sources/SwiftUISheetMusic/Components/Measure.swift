@@ -45,10 +45,7 @@ public struct Measure: View {
                     } else if clefToShow == .TenorClef {
                         TenorClef(measureSpacing: measureSpacing)
                     } else if clefToShow == .AltoClef {
-                        Asset(named: clefToShow.rawValue)
-                            .scaledToFit()
-                            .frame(height: measureSpacing.clefHeight + measureSpacing.spacing * 1.5)
-                            .position(x: measureSpacing.spacing * 2, y: measureSpacing.line3YTop)
+                        AltoClef(measureSpacing: measureSpacing)
                     }
 
                 }
@@ -60,7 +57,7 @@ public struct Measure: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HStack (spacing: 0) {
-            Measure(clefToShow: .TenorClef)
+            Measure(clefToShow: .AltoClef)
 
         }.padding()
     }
