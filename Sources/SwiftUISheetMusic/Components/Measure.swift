@@ -40,7 +40,7 @@ public struct Measure: View {
                     
                     ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing)
                     
-                    SharpsOne(measureSpacing: measureSpacing, clef: clefToShow)
+                    FlatsSeven(measureSpacing: measureSpacing, clef: clefToShow)
 
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)

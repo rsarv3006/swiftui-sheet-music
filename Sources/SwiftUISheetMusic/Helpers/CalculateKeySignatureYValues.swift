@@ -31,6 +31,10 @@ struct CalculateKeySignatureYValues {
         static func line1(measureSpacing: MeasureSpacing) -> CGFloat {
             return measureSpacing.line1YTop * flatsLineOffset
         }
+
+        static func space5(measureSpacing: MeasureSpacing) -> CGFloat {
+            return measureSpacing.line4YTop * 1.08
+        }
         
         static func space4(measureSpacing: MeasureSpacing) -> CGFloat {
             return measureSpacing.line4YTop * flatsSpaceOffset
@@ -88,6 +92,10 @@ struct CalculateKeySignatureYValues {
         
         static func space1(measureSpacing: MeasureSpacing) -> CGFloat {
             return measureSpacing.line1YTop * sharpSpaceOffset
+        }
+        
+        static func space0(measureSpacing: MeasureSpacing) -> CGFloat {
+            return measureSpacing.line1YTop * 0.95
         }
     
     }

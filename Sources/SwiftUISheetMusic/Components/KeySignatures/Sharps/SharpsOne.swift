@@ -20,7 +20,7 @@ struct SharpsOne: View {
         self.clef = clef
         
         xPosition = measureSpacing.spacing * 5
-        height = measureSpacing.spacing * 2
+        height = measureSpacing.spacing * 2.3
     }
     
     var body: some View {
