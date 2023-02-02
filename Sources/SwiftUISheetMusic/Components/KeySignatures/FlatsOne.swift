@@ -24,16 +24,16 @@ struct FlatsOne: View {
     var body: some View {
         if clef == .BassClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line1(measureSpacing: measureSpacing))
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line4(measureSpacing: measureSpacing))
         } else if clef == .TrebleClef {
             FlatSignNotation(height: height)
                 .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line3(measureSpacing: measureSpacing))
         } else if clef == .AltoClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space2(measureSpacing: measureSpacing))
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space3(measureSpacing: measureSpacing))
         } else if clef == .TenorClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space3(measureSpacing: measureSpacing))
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space2(measureSpacing: measureSpacing))
         }
 
     }
@@ -42,6 +42,16 @@ struct FlatsOne: View {
 
 struct FlatsOne_Previews: PreviewProvider {
     static var previews: some View {
-        Measure(clefToShow: .TenorClef, measureBarVariant: .SingleBar)
+        VStack {
+            HStack (spacing: 0) {
+                Measure(clefToShow: .TrebleClef)
+                Measure(clefToShow: .BassClef)
+            }.padding()
+            
+            HStack (spacing: 0) {
+                Measure(clefToShow: .TenorClef)
+                Measure(clefToShow: .AltoClef)
+            }.padding()
+        }
     }
 }
