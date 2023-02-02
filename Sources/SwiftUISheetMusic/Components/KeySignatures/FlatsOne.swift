@@ -24,16 +24,16 @@ struct FlatsOne: View {
     var body: some View {
         if clef == .BassClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: measureSpacing.line3YTop * 1.06)
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line1(measureSpacing: measureSpacing))
         } else if clef == .TrebleClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: measureSpacing.line2YTop * 1.06)
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line3(measureSpacing: measureSpacing))
         } else if clef == .AltoClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: measureSpacing.line2YTop * 1.12)
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space2(measureSpacing: measureSpacing))
         } else if clef == .TenorClef {
             FlatSignNotation(height: height)
-                .position(x: xPosition, y: measureSpacing.line1YTop * 1.12)
+                .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space3(measureSpacing: measureSpacing))
         }
 
     }

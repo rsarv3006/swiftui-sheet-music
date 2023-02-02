@@ -19,7 +19,7 @@ public struct Measure: View {
     public var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
-            let measureSpacing = MeasureSpacing(width: width, spacing:32, numberOfLegderLines: 9, measureBarVariant: measureBarVariant)
+            let measureSpacing = MeasureSpacing(width: width, spacing:12, numberOfLegderLines: 9, measureBarVariant: measureBarVariant)
             VStack {
                 ZStack {
                     Path { path in
@@ -40,7 +40,7 @@ public struct Measure: View {
                     
                     ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing)
                     
-                    FlatsTwo(measureSpacing: measureSpacing, clef: clefToShow)
+                    FlatsThree(measureSpacing: measureSpacing, clef: clefToShow)
 
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
@@ -50,8 +50,16 @@ public struct Measure: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HStack (spacing: 0) {
-            Measure(clefToShow: .TrebleClef)
-        }.padding()
+        VStack {
+            HStack (spacing: 0) {
+                Measure(clefToShow: .TrebleClef)
+                Measure(clefToShow: .BassClef)
+            }.padding()
+            
+            HStack (spacing: 0) {
+                Measure(clefToShow: .TenorClef)
+                Measure(clefToShow: .AltoClef)
+            }.padding()
+        }
     }
 }

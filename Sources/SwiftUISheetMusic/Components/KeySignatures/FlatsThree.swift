@@ -3,11 +3,11 @@
 //  
 //
 //  Created by Robert J. Sarvis Jr on 2/1/23.
-//
+//FlatsThree
 
 import SwiftUI
 
-struct FlatsTwo: View {
+struct FlatsThree: View {
     private let measureSpacing: MeasureSpacing
     private let clef: ClefNameVariant
     private let xPosition: CGFloat
@@ -17,31 +17,31 @@ struct FlatsTwo: View {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 6
+        xPosition = measureSpacing.spacing * 7
         height = measureSpacing.spacing * 2
     }
     
     var body: some View {
         ZStack {
-            FlatsOne(measureSpacing: measureSpacing, clef: clef)
+            FlatsTwo(measureSpacing: measureSpacing, clef: clef)
             if clef == .BassClef {
                 FlatSignNotation(height: height)
-                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space3(measureSpacing: measureSpacing))
+                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space1(measureSpacing: measureSpacing))
             } else if clef == .TrebleClef {
                 FlatSignNotation(height: height)
-                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space4(measureSpacing: measureSpacing))
+                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.space2(measureSpacing: measureSpacing))
             } else if clef == .AltoClef {
                 FlatSignNotation(height: height)
-                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line4(measureSpacing: measureSpacing))
+                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line2(measureSpacing: measureSpacing))
             } else if clef == .TenorClef {
                 FlatSignNotation(height: height)
-                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line5(measureSpacing: measureSpacing))
+                    .position(x: xPosition, y: CalculateKeySignatureXValues.Flats.line3(measureSpacing: measureSpacing))
             }
         }
     }
 }
 
-struct FlatsTwo_Previews: PreviewProvider {
+struct FlatsThree_Previews: PreviewProvider {
     static var previews: some View {
         Measure(clefToShow: .TenorClef, measureBarVariant: .SingleBar)
     }
