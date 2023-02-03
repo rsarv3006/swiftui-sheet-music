@@ -19,7 +19,7 @@ public struct Measure: View {
     public var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
-            let measureSpacing = MeasureSpacing(width: width, spacing:12, numberOfLegderLines: 9, measureBarVariant: measureBarVariant)
+            let measureSpacing = MeasureSpacing(width: width, spacing:12, measureBarVariant: measureBarVariant)
             VStack {
                 ZStack {
                     Path { path in

@@ -29,18 +29,8 @@ final class MeasureSpacingTests: XCTestCase {
         XCTAssertEqual(sut.lineHeight, 2)
     }
     
-    func testLine1YTopShouldBe0WithNoLedgerLines() throws {
-        let sut = MeasureSpacing(width: 300)
-        XCTAssertEqual(sut.line1YTop, 0)
-    }
-    
-    func testMeasureHeightWithNoLedgerLines() throws {
-        let sut = MeasureSpacing(width: 300)
-        XCTAssertEqual(sut.measureHeight, 37.0)
-    }
-    
     func testMeasureHeightWithLedgerLines() throws {
-        let sut = MeasureSpacing(width: 300, numberOfLegderLines: 9)
+        let sut = MeasureSpacing(width: 300)
         XCTAssertEqual(sut.measureHeight, 199.0)
     }
     
@@ -55,7 +45,7 @@ final class MeasureSpacingTests: XCTestCase {
     }
     
     func testClefHeightWithLedgerLines() throws {
-        let sut = MeasureSpacing(width: 300, numberOfLegderLines: 9)
+        let sut = MeasureSpacing(width: 300)
         XCTAssertEqual(sut.clefHeight, 27.0)
     }
 }

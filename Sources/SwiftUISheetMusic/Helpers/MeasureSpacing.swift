@@ -35,8 +35,10 @@ public struct MeasureSpacing {
     
     let measureHeight: CGFloat
     let clefHeight: CGFloat
+    
+    let numberOfLegderLines = 9
 
-    init (width: CGFloat, spacing: CGFloat = 8, numberOfLegderLines: Int = 0, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
+    init (width: CGFloat, spacing: CGFloat = 8, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
         self.width = width
         self.spacing = spacing
         self.lineHeight = spacing / 8
