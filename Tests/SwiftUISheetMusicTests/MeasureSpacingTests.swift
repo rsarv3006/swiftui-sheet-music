@@ -34,11 +34,6 @@ final class MeasureSpacingTests: XCTestCase {
         XCTAssertEqual(sut.measureHeight, 199.0)
     }
     
-    func testMeasureStartBarLineNotVisible() throws {
-        let sut = MeasureSpacing(width: 300)
-        XCTAssertEqual(sut.measureStartPointArray, [])
-    }
-    
     func testClefHeight() throws {
         let sut = MeasureSpacing(width: 300)
         XCTAssertEqual(sut.clefHeight, 27.0)
@@ -49,44 +44,4 @@ final class MeasureSpacingTests: XCTestCase {
         XCTAssertEqual(sut.clefHeight, 27.0)
     }
     
-    func testMeasureEndBarSingleLine() throws {
-        let sut = MeasureSpacing(width: 300, measureBarVariant: .SingleBar)
-        XCTAssertEqual(sut.measureEndPointArray, [CGPoint(x: 299.0, y: 81.0), CGPoint(x: 300.0, y: 81.0), CGPoint(x: 300.0, y: 118.0), CGPoint(x: 299.0, y: 118.0), CGPoint(x: 299.0, y: 81.0)])
-    }
-    
-    func testMeasureEndBarEndLine() throws {
-        let sut = MeasureSpacing(width: 300, measureBarVariant: .EndBar)
-        XCTAssertEqual(sut.measureEndPointArray,
-                       [
-                        CGPoint(x: 296.0, y: 81.0),
-                        CGPoint(x: 300.0, y: 81.0),
-                        CGPoint(x: 300.0, y: 118.0),
-                        CGPoint(x: 296.0, y: 118.0),
-                        CGPoint(x: 296.0, y: 81.0),
-                        CGPoint(x: 292.0, y: 81.0),
-                        CGPoint(x: 293.0, y: 81.0),
-                        CGPoint(x: 293.0, y: 118.0),
-                        CGPoint(x: 292.0, y: 118.0),
-                        CGPoint(x: 292.0, y: 81.0)
-                       ]
-        )
-    }
-    
-    func testMeasureDoubleBarline() throws {
-        let sut = MeasureSpacing(width: 300, measureBarVariant: .DoubleBar)
-        XCTAssertEqual(sut.measureEndPointArray,
-                       [
-                        CGPoint(x: 299.0, y: 81.0),
-                        CGPoint(x: 300.0, y: 81.0),
-                        CGPoint(x: 300.0, y: 118.0),
-                        CGPoint(x: 299.0, y: 118.0),
-                        CGPoint(x: 299.0, y: 81.0),
-                        CGPoint(x: 295.0, y: 81.0),
-                        CGPoint(x: 296.0, y: 81.0),
-                        CGPoint(x: 296.0, y: 118.0),
-                        CGPoint(x: 295.0, y: 118.0),
-                        CGPoint(x: 295.0, y: 81.0)
-                       ]
-        )
-    }
 }

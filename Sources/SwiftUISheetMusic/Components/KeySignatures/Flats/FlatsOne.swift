@@ -12,13 +12,15 @@ struct FlatsOne: View {
     private let clef: ClefNameVariant
     private let xPosition: CGFloat
     private let height: CGFloat
+    private let leftOffset: CGFloat
     
-    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant) {
+    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant, leftOffset: CGFloat = 0) {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 5
+        xPosition = measureSpacing.spacing * 5 + leftOffset
         height = measureSpacing.spacing * 2
+        self.leftOffset = leftOffset
     }
     
     var body: some View {
@@ -41,16 +43,21 @@ struct FlatsOne: View {
 }
 
 struct FlatsOne_Previews: PreviewProvider {
+    @State static var trebleClef: ClefNameVariant = .TrebleClef
+    @State static var bassClef: ClefNameVariant = .BassClef
+    @State static var tenorClef: ClefNameVariant = .TenorClef
+    @State static var altoClef: ClefNameVariant = .AltoClef
+    
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                Measure(clefToShow: .TrebleClef)
-                Measure(clefToShow: .BassClef)
+                Measure(clefToShow: $trebleClef)
+                Measure(clefToShow: $bassClef)
             }.padding()
             
             HStack (spacing: 0) {
-                Measure(clefToShow: .TenorClef)
-                Measure(clefToShow: .AltoClef)
+                Measure(clefToShow: $trebleClef)
+                Measure(clefToShow: $altoClef)
             }.padding()
         }
     }

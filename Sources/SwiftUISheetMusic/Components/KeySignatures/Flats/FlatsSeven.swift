@@ -12,18 +12,20 @@ struct FlatsSeven: View {
     private let clef: ClefNameVariant
     private let xPosition: CGFloat
     private let height: CGFloat
+    private let leftOffset: CGFloat
     
-    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant) {
+    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant, leftOffset: CGFloat = 0) {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 11
+        xPosition = measureSpacing.spacing * 11 + leftOffset
         height = measureSpacing.spacing * 2
+        self.leftOffset = leftOffset
     }
     
     var body: some View {
         ZStack {
-            FlatsSix(measureSpacing: measureSpacing, clef: clef)
+            FlatsSix(measureSpacing: measureSpacing, clef: clef, leftOffset: leftOffset)
             if clef == .BassClef {
                 FlatSignNotation(height: height)
                     .position(x: xPosition, y: CalculateKeySignatureYValues.Flats.space5(measureSpacing: measureSpacing))
@@ -42,16 +44,21 @@ struct FlatsSeven: View {
 }
 
 struct FlatsSeven_Previews: PreviewProvider {
+    @State static var trebleClef: ClefNameVariant = .TrebleClef
+    @State static var bassClef: ClefNameVariant = .BassClef
+    @State static var tenorClef: ClefNameVariant = .TenorClef
+    @State static var altoClef: ClefNameVariant = .AltoClef
+    
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                Measure(clefToShow: .TrebleClef)
-                Measure(clefToShow: .BassClef)
+                Measure(clefToShow: $trebleClef)
+                Measure(clefToShow: $bassClef)
             }.padding()
             
             HStack (spacing: 0) {
-                Measure(clefToShow: .TenorClef)
-                Measure(clefToShow: .AltoClef)
+                Measure(clefToShow: $trebleClef)
+                Measure(clefToShow: $altoClef)
             }.padding()
         }
     }

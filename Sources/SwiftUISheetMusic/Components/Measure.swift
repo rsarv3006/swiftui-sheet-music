@@ -8,18 +8,18 @@
 import SwiftUI
 
 public struct Measure: View {
-    private var clefToShow: ClefNameVariant = .none
+    @Binding private var clefToShow: ClefNameVariant
     private var measureBarVariant: MeasureBarlineVariant = .SingleBar
     
-    public init(clefToShow: ClefNameVariant = .none, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
-        self.clefToShow = clefToShow
+    public init(clefToShow: Binding<ClefNameVariant>, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
+        self._clefToShow = clefToShow
         self.measureBarVariant = measureBarVariant
         
     }
     public var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
-            let measureSpacing = MeasureSpacing(width: width, spacing:12, measureBarVariant: measureBarVariant)
+            let measureSpacing = MeasureSpacing(width: width, spacing:8, measureBarVariant: measureBarVariant)
             VStack {
                 ZStack {
                     Path { path in
@@ -32,15 +32,13 @@ public struct Measure: View {
                         path.addLines(measureSpacing.measureLine4PointArray)
                         
                         path.addLines(measureSpacing.measureLine5PointArray)
-                        
-                        path.addLines(measureSpacing.measureEndPointArray)
-                        
-                        path.addLines(measureSpacing.measureStartPointArray)
                     }
                     
                     ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing)
                     
                     FlatsSeven(measureSpacing: measureSpacing, clef: clefToShow)
+                    
+                    MeasureBarlines(measureSpacing: measureSpacing)
 
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
@@ -52,13 +50,13 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                Measure(clefToShow: .TrebleClef)
-                Measure(clefToShow: .BassClef)
+                Measure(clefToShow: .constant(.TrebleClef))
+                Measure(clefToShow: .constant(.BassClef))
             }.padding()
             
             HStack (spacing: 0) {
-                Measure(clefToShow: .TenorClef)
-                Measure(clefToShow: .AltoClef)
+                Measure(clefToShow: .constant(.TenorClef))
+                Measure(clefToShow: .constant(.AltoClef))
             }.padding()
         }
     }

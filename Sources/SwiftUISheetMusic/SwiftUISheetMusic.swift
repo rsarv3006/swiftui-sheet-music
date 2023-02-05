@@ -8,14 +8,16 @@ public struct SwiftUISheetMusic {
 }
 
 public struct SheetMusicView: View {
-    public init() {
-        
+    @Binding var clefToShow: ClefNameVariant
+    
+    public init(clefToShow: Binding<ClefNameVariant>) {
+        self._clefToShow = clefToShow
     }
     
     public var body: some View {
         VStack {
             Text("Howdy Howdy")
-            Measure(clefToShow: .BassClef)
+            Measure(clefToShow: $clefToShow)
         }
         .padding()
     }
