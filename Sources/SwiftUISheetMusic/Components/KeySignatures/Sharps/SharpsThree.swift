@@ -38,29 +38,14 @@ struct SharpsThree: View {
                     .position(x: xPosition, y: CalculateKeySignatureYValues.Sharps.space3(measureSpacing: measureSpacing))
             }
         }
-
+        
     }
     
 }
 
 struct SharpsThree_Previews: PreviewProvider {
-    @State static var trebleClef: ClefNameVariant = .TrebleClef
-    @State static var bassClef: ClefNameVariant = .BassClef
-    @State static var tenorClef: ClefNameVariant = .TenorClef
-    @State static var altoClef: ClefNameVariant = .AltoClef
-    
     static var previews: some View {
-        VStack {
-            HStack (spacing: 0) {
-                Measure(clefToShow: $trebleClef)
-                Measure(clefToShow: $bassClef)
-            }.padding()
-            
-            HStack (spacing: 0) {
-                Measure(clefToShow: $trebleClef)
-                Measure(clefToShow: $altoClef)
-            }.padding()
-        }
+        SharpsThree(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
     }
 }
 

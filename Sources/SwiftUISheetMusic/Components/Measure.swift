@@ -9,12 +9,13 @@ import SwiftUI
 
 public struct Measure: View {
     @Binding private var clefToShow: ClefNameVariant
-    private var measureBarVariant: MeasureBarlineVariant = .SingleBar
+    @Binding private var measureBarVariant: MeasureBarlineVariant
+    @Binding private var keySignatureToShow: KeySignature
     
-    public init(clefToShow: Binding<ClefNameVariant>, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
+    public init(clefToShow: Binding<ClefNameVariant>, measureBarVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>) {
         self._clefToShow = clefToShow
-        self.measureBarVariant = measureBarVariant
-        
+        self._measureBarVariant = measureBarVariant
+        self._keySignatureToShow = keySignatureToShow
     }
     public var body: some View {
         GeometryReader { geometry in
@@ -36,7 +37,7 @@ public struct Measure: View {
                     
                     ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing)
                     
-                    FlatsSeven(measureSpacing: measureSpacing, clef: clefToShow)
+                    KeySignatureView(measureSpacing: measureSpacing, clefNameVariant: $clefToShow, selectedKeySignature: $keySignatureToShow)
                     
                     MeasureBarlines(measureSpacing: measureSpacing)
 
@@ -50,13 +51,13 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                Measure(clefToShow: .constant(.TrebleClef))
-                Measure(clefToShow: .constant(.BassClef))
+                Measure(clefToShow: .constant(.TrebleClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor))
+                Measure(clefToShow: .constant(.BassClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor))
             }.padding()
             
             HStack (spacing: 0) {
-                Measure(clefToShow: .constant(.TenorClef))
-                Measure(clefToShow: .constant(.AltoClef))
+                Measure(clefToShow: .constant(.TenorClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor))
+                Measure(clefToShow: .constant(.AltoClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor))
             }.padding()
         }
     }

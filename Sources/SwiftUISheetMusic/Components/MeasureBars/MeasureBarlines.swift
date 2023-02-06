@@ -36,9 +36,11 @@ struct MeasureBarlines: View {
 
 struct MeasureBarlines_Previews: PreviewProvider {
     @State static var clefToShow: ClefNameVariant = .BassClef
+    @State static var measureBarVariant: MeasureBarlineVariant = .EndRepeatBar
+    @State static var keySignatureToShow: KeySignature = KeySignatures.EFlatMajor
     
     static var previews: some View {
-        Measure(clefToShow: $clefToShow, measureBarVariant: .EndRepeatBar)
+        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow)
             .padding()
     }
 }

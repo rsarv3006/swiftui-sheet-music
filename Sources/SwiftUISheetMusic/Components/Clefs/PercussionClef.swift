@@ -23,11 +23,7 @@ struct PercussionClef: View {
 }
 
 struct PercussionClef_Previews: PreviewProvider {
-    @State static var clefToShow: ClefNameVariant = .PercussionClef
-    
     static var previews: some View {
-        HStack (spacing: 0) {
-            Measure(clefToShow: $clefToShow)
-        }.padding()
+        PercussionClef(measureSpacing: MeasureSpacing(width: 300))
     }
 }

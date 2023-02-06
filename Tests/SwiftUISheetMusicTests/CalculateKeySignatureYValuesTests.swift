@@ -22,10 +22,10 @@ final class CalculateKeySignatureYValuesTests: XCTestCase {
         XCTAssertEqual(line3, 95.535)
         
         let line4 = CalculateKeySignatureYValues.Flats.line4(measureSpacing: measureSpacing)
-        XCTAssertEqual(line4, 104.22)
+        XCTAssertEqual(line4, 105.3)
         
         let line5 = CalculateKeySignatureYValues.Flats.line5(measureSpacing: measureSpacing)
-        XCTAssertEqual(line5, 112.905)
+        XCTAssertEqual(line5, 114.075)
     }
     
     func testFlatsLinesWithModifiedSpacing() {
@@ -41,10 +41,10 @@ final class CalculateKeySignatureYValuesTests: XCTestCase {
         XCTAssertEqual(line3, 143.3025)
         
         let line4 = CalculateKeySignatureYValues.Flats.line4(measureSpacing: measureSpacing)
-        XCTAssertEqual(line4, 156.32999999999998)
+        XCTAssertEqual(line4, 157.95)
         
         let line5 = CalculateKeySignatureYValues.Flats.line5(measureSpacing: measureSpacing)
-        XCTAssertEqual(line5, 169.3575)
+        XCTAssertEqual(line5, 171.11249999999998)
     }
 
     func testFlatsSpaces() {
@@ -63,7 +63,7 @@ final class CalculateKeySignatureYValuesTests: XCTestCase {
         XCTAssertEqual(space4, 109.08)
         
         let space5 = CalculateKeySignatureYValues.Flats.space5(measureSpacing: measureSpacing)
-        XCTAssertEqual(space5, 116.64000000000001)
+        XCTAssertEqual(space5, 118.25999999999999)
     }
     
     func testFlatsSpacesWithModifiedSpacing() {
@@ -82,7 +82,7 @@ final class CalculateKeySignatureYValuesTests: XCTestCase {
         XCTAssertEqual(space4, 163.62)
         
         let space5 = CalculateKeySignatureYValues.Flats.space5(measureSpacing: measureSpacing)
-        XCTAssertEqual(space5, 174.96)
+        XCTAssertEqual(space5, 177.39)
     }
     
     // sharps

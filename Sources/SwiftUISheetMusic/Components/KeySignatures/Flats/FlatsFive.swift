@@ -44,23 +44,8 @@ struct FlatsFive: View {
 }
 
 struct FlatsFive_Previews: PreviewProvider {
-    @State static var trebleClef: ClefNameVariant = .TrebleClef
-    @State static var bassClef: ClefNameVariant = .BassClef
-    @State static var tenorClef: ClefNameVariant = .TenorClef
-    @State static var altoClef: ClefNameVariant = .AltoClef
-    
     static var previews: some View {
-        VStack {
-            HStack (spacing: 0) {
-                Measure(clefToShow: $trebleClef)
-                Measure(clefToShow: $bassClef)
-            }.padding()
-            
-            HStack (spacing: 0) {
-                Measure(clefToShow: $trebleClef)
-                Measure(clefToShow: $altoClef)
-            }.padding()
-        }
+        FlatsFive(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
     }
 }
 
