@@ -15,11 +15,11 @@ struct SharpsOne: View {
     private let xPosition: CGFloat
     private let height: CGFloat
     
-    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant) {
+    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant, leftOffset: CGFloat = 0) {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 5
+        xPosition = (measureSpacing.spacing * 5) - leftOffset
         height = measureSpacing.spacing * 2.3
     }
     

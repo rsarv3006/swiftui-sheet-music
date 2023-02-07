@@ -18,7 +18,7 @@ struct FlatsThree: View {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 7 + leftOffset
+        xPosition = (measureSpacing.spacing * 7) - leftOffset
         height = measureSpacing.spacing * 2
         self.leftOffset = leftOffset
     }

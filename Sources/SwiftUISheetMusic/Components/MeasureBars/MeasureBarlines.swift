@@ -40,7 +40,7 @@ struct MeasureBarlines_Previews: PreviewProvider {
     @State static var keySignatureToShow: KeySignature = KeySignatures.EFlatMajor
     
     static var previews: some View {
-        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow)
+        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: .constant(true))
             .padding()
     }
 }

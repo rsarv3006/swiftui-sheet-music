@@ -10,14 +10,18 @@ import SwiftUI
 struct ClefViewForMeasure: View {
     private let clefToShow: ClefNameVariant
     private let measureSpacing: MeasureSpacing
+    private let isClefVisible: Bool
     
-    init(clefToShow: ClefNameVariant, measureSpacing: MeasureSpacing) {
+    init(clefToShow: ClefNameVariant, measureSpacing: MeasureSpacing, isClefVisible: Bool) {
         self.clefToShow = clefToShow
         self.measureSpacing = measureSpacing
+        self.isClefVisible = isClefVisible
     }
     
     var body: some View {
-        if clefToShow == .BassClef {
+        if !isClefVisible {
+            EmptyView()
+        } else if clefToShow == .BassClef {
             BassClef(measureSpacing: measureSpacing)
         } else if clefToShow == .TrebleClef {
             TrebleClef(measureSpacing: measureSpacing)
@@ -33,6 +37,6 @@ struct ClefViewForMeasure: View {
 
 struct ClefViewForMeasure_Previews: PreviewProvider {
     static var previews: some View {
-        ClefViewForMeasure(clefToShow: .BassClef, measureSpacing: MeasureSpacing(width: 300))
+        ClefViewForMeasure(clefToShow: .BassClef, measureSpacing: MeasureSpacing(width: 300), isClefVisible: true)
     }
 }

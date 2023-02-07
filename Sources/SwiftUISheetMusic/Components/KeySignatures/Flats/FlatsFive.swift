@@ -18,7 +18,7 @@ struct FlatsFive: View {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 9 + leftOffset
+        xPosition = (measureSpacing.spacing * 9) - leftOffset
         height = measureSpacing.spacing * 2
         self.leftOffset = leftOffset
     }

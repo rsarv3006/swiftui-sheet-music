@@ -12,18 +12,20 @@ struct SharpsSix: View {
     private let clef: ClefNameVariant
     private let xPosition: CGFloat
     private let height: CGFloat
+    private let leftOffset: CGFloat
     
-    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant) {
+    init(measureSpacing: MeasureSpacing, clef: ClefNameVariant, leftOffset: CGFloat = 0) {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 10
+        xPosition = (measureSpacing.spacing * 10) - leftOffset
         height = measureSpacing.spacing * 2.3
+        self.leftOffset = leftOffset
     }
     
     var body: some View {
         ZStack {
-            SharpsFive(measureSpacing: measureSpacing, clef: clef)
+            SharpsFive(measureSpacing: measureSpacing, clef: clef, leftOffset: leftOffset)
             if clef == .BassClef {
                 SharpSignNotation(height: height)
                     .position(x: xPosition, y: CalculateKeySignatureYValues.Sharps.space2(measureSpacing: measureSpacing))

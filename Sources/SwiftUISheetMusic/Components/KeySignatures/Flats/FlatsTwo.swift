@@ -18,7 +18,7 @@ struct FlatsTwo: View {
         self.measureSpacing = measureSpacing
         self.clef = clef
         
-        xPosition = measureSpacing.spacing * 6
+        xPosition = (measureSpacing.spacing * 6) - leftOffset
         height = measureSpacing.spacing * 2
         self.leftOffset = leftOffset
     }
