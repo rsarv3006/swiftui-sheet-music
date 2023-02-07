@@ -37,13 +37,13 @@ public struct Measure: View {
                         
                         path.addLines(measureSpacing.measureLine5PointArray)
                     }
+                    .foregroundColor(Color.ui.black)
                     
                     ClefViewForMeasure(clefToShow: clefToShow, measureSpacing: measureSpacing, isClefVisible: isClefVisible)
                     
                     KeySignatureView(measureSpacing: measureSpacing, clefNameVariant: $clefToShow, selectedKeySignature: $keySignatureToShow, isClefVisible: $isClefVisible)
                     
                     MeasureBarlines(measureSpacing: measureSpacing)
-
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
         }

@@ -21,14 +21,15 @@ struct MeasureBarlines: View {
             Path { path in
                 path.addLines(measureBarlineUtil.pointsArray)
             }
+            .foregroundColor(Color.ui.black)
             
             if measureBarVariant == .EndRepeatBar {
                 Circle()
                     .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.ui.black)
                 Circle()
                     .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.ui.black)
             }
         }
     }

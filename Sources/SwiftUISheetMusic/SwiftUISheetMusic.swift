@@ -22,6 +22,7 @@ public struct SheetMusicView: View {
     
     public var body: some View {
         Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible)
+            .background(Color.white)
     }
 }
 
