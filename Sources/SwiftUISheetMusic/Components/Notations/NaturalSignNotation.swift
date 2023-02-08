@@ -15,14 +15,15 @@ struct NaturalSignNotation: View {
     }
     
     var body: some View {
-        Asset(named: "sign_natural")
-            .scaledToFit()
-            .frame(height: height)
+        Text("\u{266E}").font(Font.custom("Bravura", size: height * 1.5))
     }
 }
 
 struct NaturalSignNotation_Previews: PreviewProvider {
     static var previews: some View {
-        NaturalSignNotation(height: 14)
+        NaturalSignNotation(height: 140)
+            .onLoad {
+                SwiftUISheetMusic.registerFonts()
+            }
     }
 }

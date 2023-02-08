@@ -9,8 +9,8 @@ import Foundation
 
 struct CalculateKeySignatureYValues {
     struct Flats {
-        private static let flatsLineOffset: CGFloat = 0.965
-        private static let flatsSpaceOffset: CGFloat = 1.01
+        private static let flatsLineOffset: CGFloat = 1
+        private static let flatsSpaceOffset: CGFloat = 1.05
         
         static func line5(measureSpacing: MeasureSpacing) -> CGFloat {
             return measureSpacing.line5YTop * (flatsLineOffset + 0.01)
@@ -33,7 +33,7 @@ struct CalculateKeySignatureYValues {
         }
 
         static func space5(measureSpacing: MeasureSpacing) -> CGFloat {
-            return measureSpacing.line4YTop * 1.095
+            return measureSpacing.line4YTop * 1.13
         }
         
         static func space4(measureSpacing: MeasureSpacing) -> CGFloat {

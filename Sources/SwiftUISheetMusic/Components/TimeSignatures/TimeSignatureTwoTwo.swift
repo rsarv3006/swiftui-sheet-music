@@ -12,7 +12,6 @@ struct TimeSignatureTwoTwo: View {
     
     init(height: Binding<CGFloat>) {
         self._height = height
-        SwiftUISheetMusic.registerFonts()
     }
     
     var body: some View {
@@ -30,5 +29,8 @@ struct TimeSignatureTwoTwo: View {
 struct TimeSignatureTwoTwo_Previews: PreviewProvider {
     static var previews: some View {
         TimeSignatureTwoTwo(height: .constant(256))
+            .onLoad {
+                SwiftUISheetMusic.registerFonts()
+            }
     }
 }

@@ -54,13 +54,13 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                Measure(clefToShow: .constant(.TrebleClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor), isClefVisible: .constant(true))
-                Measure(clefToShow: .constant(.BassClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor), isClefVisible: .constant(true))
+                Measure(clefToShow: .constant(.TrebleClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true))
+                Measure(clefToShow: .constant(.BassClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true))
             }.padding()
             
             HStack (spacing: 0) {
-                Measure(clefToShow: .constant(.TenorClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor), isClefVisible: .constant(true))
-                Measure(clefToShow: .constant(.AltoClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.EFlatMajor), isClefVisible: .constant(true))
+                Measure(clefToShow: .constant(.TenorClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true))
+                Measure(clefToShow: .constant(.AltoClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true))
             }.padding()
         }
     }

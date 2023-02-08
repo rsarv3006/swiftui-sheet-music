@@ -31,7 +31,7 @@ public struct SheetMusicView: View {
     @Binding var measureBarlineVariant: MeasureBarlineVariant
     @Binding var keySignatureToShow: KeySignature
     @Binding var isClefVisible: Bool
-    
+
     public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>) {
         self._clefToShow = clefToShow
         self._measureBarlineVariant = measureBarlineVariant

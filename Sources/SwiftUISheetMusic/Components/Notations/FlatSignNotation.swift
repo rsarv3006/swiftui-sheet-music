@@ -15,14 +15,15 @@ struct FlatSignNotation: View {
     }
     
     var body: some View {
-        Asset(named: "sign_flat")
-            .scaledToFit()
-            .frame(height: height)
+        Text("\u{266D}").font(Font.custom("Bravura", size: height * 2))
     }
 }
 
 struct FlatSignNotation_Previews: PreviewProvider {
     static var previews: some View {
-        FlatSignNotation(height: 14)
+        FlatSignNotation(height: 140)
+            .onLoad {
+                SwiftUISheetMusic.registerFonts()
+            }
     }
 }
