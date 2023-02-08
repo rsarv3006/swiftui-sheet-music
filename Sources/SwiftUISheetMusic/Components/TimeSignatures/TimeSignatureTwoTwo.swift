@@ -12,18 +12,23 @@ struct TimeSignatureTwoTwo: View {
     
     init(height: Binding<CGFloat>) {
         self._height = height
+        SwiftUISheetMusic.registerFonts()
     }
     
     var body: some View {
-        Asset(named: "time_signature_2_2")
-            .scaledToFit()
-            .frame(height: height)
+        VStack (spacing: height * 0.25 * -1) {
+            Text("\u{E082}").font(Font.custom("Bravura", size: height / 2))
+                .frame(height: height / 2)
+            Text("\u{E082}").font(Font.custom("Bravura", size: height / 2))
+                .frame(height: height / 2)
+        }
+        .frame(height: height * 0.52)
     }
 
 }
 
 struct TimeSignatureTwoTwo_Previews: PreviewProvider {
     static var previews: some View {
-        TimeSignatureTwoTwo(height: .constant(64))
+        TimeSignatureTwoTwo(height: .constant(256))
     }
 }
