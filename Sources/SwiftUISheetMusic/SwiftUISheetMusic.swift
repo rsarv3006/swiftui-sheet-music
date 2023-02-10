@@ -31,17 +31,19 @@ public struct SheetMusicView: View {
     @Binding var measureBarlineVariant: MeasureBarlineVariant
     @Binding var keySignatureToShow: KeySignature
     @Binding var isClefVisible: Bool
-
-    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>) {
+    @Binding var timeSignature: TimeSignature
+    
+    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, timeSignature: Binding<TimeSignature>) {
         self._clefToShow = clefToShow
         self._measureBarlineVariant = measureBarlineVariant
         self._keySignatureToShow = keySignatureToShow
         self._isClefVisible = isClefVisible
+        self._timeSignature = timeSignature
         SwiftUISheetMusic.registerFonts()
     }
     
     public var body: some View {
-        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible)
+        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, timeSignature: $timeSignature)
             .background(Color.white)
     }
 }

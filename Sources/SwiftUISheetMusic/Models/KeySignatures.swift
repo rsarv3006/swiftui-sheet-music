@@ -93,7 +93,7 @@ public class KeySignature {
     public let displayName: String
     public let id: String
     public let keySignatureType: KeySignatureType
-    public let numberOfSymbols: Int
+    public var numberOfSymbols: Int
     
     init(displayName: String, id: String, keySignatureType: KeySignatureType, numberOfSymbols: Int) {
         self.displayName = displayName

@@ -37,6 +37,8 @@ public struct MeasureSpacing {
     
     let measureBarVariant: MeasureBarlineVariant
     
+    let timeSignatureHeight: CGFloat
+    
     init (width: CGFloat, spacing: CGFloat = 8, measureBarVariant: MeasureBarlineVariant = .SingleBar) {
         self.width = width
         self.spacing = spacing
@@ -63,13 +65,16 @@ public struct MeasureSpacing {
         
         self.measureHeight = line5YBottom + ledgerLineOffset
         
-        self.clefHeight = line4YTop - ledgerLineOffset
+        let clefHeight = line4YTop - ledgerLineOffset
+        self.clefHeight = clefHeight
         
         self.measureLine1PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line1YTop, lineBottom: line1YBottom)
         self.measureLine2PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line2YTop, lineBottom: line2YBottom)
         self.measureLine3PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line3YTop, lineBottom: line3YBottom)
         self.measureLine4PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line4YTop, lineBottom: line4YBottom)
         self.measureLine5PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line5YTop, lineBottom: line5YBottom)
+        
+        self.timeSignatureHeight = clefHeight * 2.8
         
     }
     

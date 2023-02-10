@@ -41,7 +41,7 @@ struct MeasureBarlines_Previews: PreviewProvider {
     @State static var keySignatureToShow: KeySignature = KeySignatures.EFlatMajor
     
     static var previews: some View {
-        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: .constant(true))
+        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: .constant(true), timeSignature: .constant(TimeSignature(topNumberCodes: [TimeSignatureNumbersMap.Four], bottomNumberCodes: [TimeSignatureNumbersMap.Four])))
             .padding()
     }
 }
