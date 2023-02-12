@@ -9,6 +9,4 @@ import XCTest
 @testable import SwiftUISheetMusic
 
 final class KeySignatureTests: XCTestCase {
-
-
 }

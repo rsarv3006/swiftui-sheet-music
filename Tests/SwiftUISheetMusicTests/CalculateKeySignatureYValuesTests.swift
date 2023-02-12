@@ -13,76 +13,76 @@ final class CalculateKeySignatureYValuesTests: XCTestCase {
         let measureSpacing = MeasureSpacing(width: 300)
         
         let line1 = CalculateKeySignatureYValues.Flats.line1(measureSpacing: measureSpacing)
-        XCTAssertEqual(line1, 78.16499999999999)
+        XCTAssertEqual(line1, 81.0)
         
         let line2 = CalculateKeySignatureYValues.Flats.line2(measureSpacing: measureSpacing)
-        XCTAssertEqual(line2, 86.85)
+        XCTAssertEqual(line2, 90.0)
         
         let line3 = CalculateKeySignatureYValues.Flats.line3(measureSpacing: measureSpacing)
-        XCTAssertEqual(line3, 95.535)
+        XCTAssertEqual(line3, 99.0)
         
         let line4 = CalculateKeySignatureYValues.Flats.line4(measureSpacing: measureSpacing)
-        XCTAssertEqual(line4, 105.3)
+        XCTAssertEqual(line4, 109.08)
         
         let line5 = CalculateKeySignatureYValues.Flats.line5(measureSpacing: measureSpacing)
-        XCTAssertEqual(line5, 114.075)
+        XCTAssertEqual(line5, 118.17)
     }
     
     func testFlatsLinesWithModifiedSpacing() {
         let measureSpacing = MeasureSpacing(width: 300, spacing: 12)
         
         let line1 = CalculateKeySignatureYValues.Flats.line1(measureSpacing: measureSpacing)
-        XCTAssertEqual(line1, 117.2475)
+        XCTAssertEqual(line1, 121.5)
         
         let line2 = CalculateKeySignatureYValues.Flats.line2(measureSpacing: measureSpacing)
-        XCTAssertEqual(line2, 130.275)
+        XCTAssertEqual(line2, 135)
         
         let line3 = CalculateKeySignatureYValues.Flats.line3(measureSpacing: measureSpacing)
-        XCTAssertEqual(line3, 143.3025)
+        XCTAssertEqual(line3, 148.5)
         
         let line4 = CalculateKeySignatureYValues.Flats.line4(measureSpacing: measureSpacing)
-        XCTAssertEqual(line4, 157.95)
+        XCTAssertEqual(line4, 163.62)
         
         let line5 = CalculateKeySignatureYValues.Flats.line5(measureSpacing: measureSpacing)
-        XCTAssertEqual(line5, 171.11249999999998)
+        XCTAssertEqual(line5, 177.255)
     }
 
     func testFlatsSpaces() {
         let measureSpacing = MeasureSpacing(width: 300)
         
         let space1 = CalculateKeySignatureYValues.Flats.space1(measureSpacing: measureSpacing)
-        XCTAssertEqual(space1, 81.81)
+        XCTAssertEqual(space1, 85.05)
         
         let space2 = CalculateKeySignatureYValues.Flats.space2(measureSpacing: measureSpacing)
-        XCTAssertEqual(space2, 90.9)
+        XCTAssertEqual(space2, 94.5)
         
         let space3 = CalculateKeySignatureYValues.Flats.space3(measureSpacing: measureSpacing)
-        XCTAssertEqual(space3, 99.99)
+        XCTAssertEqual(space3, 103.95)
         
         let space4 = CalculateKeySignatureYValues.Flats.space4(measureSpacing: measureSpacing)
-        XCTAssertEqual(space4, 109.08)
+        XCTAssertEqual(space4, 113.4)
         
         let space5 = CalculateKeySignatureYValues.Flats.space5(measureSpacing: measureSpacing)
-        XCTAssertEqual(space5, 118.25999999999999)
+        XCTAssertEqual(space5, 122.03999999999999)
     }
     
     func testFlatsSpacesWithModifiedSpacing() {
         let measureSpacing = MeasureSpacing(width: 300, spacing: 12)
         
         let space1 = CalculateKeySignatureYValues.Flats.space1(measureSpacing: measureSpacing)
-        XCTAssertEqual(space1, 122.715)
+        XCTAssertEqual(space1, 127.575)
         
         let space2 = CalculateKeySignatureYValues.Flats.space2(measureSpacing: measureSpacing)
-        XCTAssertEqual(space2, 136.35)
+        XCTAssertEqual(space2, 141.75)
         
         let space3 = CalculateKeySignatureYValues.Flats.space3(measureSpacing: measureSpacing)
-        XCTAssertEqual(space3, 149.985)
+        XCTAssertEqual(space3, 155.925)
         
         let space4 = CalculateKeySignatureYValues.Flats.space4(measureSpacing: measureSpacing)
-        XCTAssertEqual(space4, 163.62)
+        XCTAssertEqual(space4, 170.1)
         
         let space5 = CalculateKeySignatureYValues.Flats.space5(measureSpacing: measureSpacing)
-        XCTAssertEqual(space5, 177.39)
+        XCTAssertEqual(space5, 183.05999999999997)
     }
     
     // sharps

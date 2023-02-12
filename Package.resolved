@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "music-notation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rsarv3006/music-notation",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d69de06274fc80da0caba9ce24baeba3954522c5"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MusicNotation
 
 struct MeasureBarlines: View {
     private let measureBarlineUtil: MeasureBarlineUtil
@@ -39,9 +40,15 @@ struct MeasureBarlines_Previews: PreviewProvider {
     @State static var clefToShow: ClefNameVariant = .BassClef
     @State static var measureBarVariant: MeasureBarlineVariant = .EndRepeatBar
     @State static var keySignatureToShow: KeySignature = KeySignatures.EFlatMajor
-    
+    @StateObject static var timeSignature: TimeSignature = TimeSignature(topNumber: 4, bottomNumber: 4, tempo: 120)
     static var previews: some View {
-        Measure(clefToShow: $clefToShow, measureBarVariant: $measureBarVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: .constant(true), timeSignature: .constant(TimeSignature(topNumberCodes: [TimeSignatureNumbersMap.Four], bottomNumberCodes: [TimeSignatureNumbersMap.Four])))
+        MeasureView(
+            clefToShow: $clefToShow,
+            measureBarVariant: $measureBarVariant,
+            keySignatureToShow: $keySignatureToShow,
+            isClefVisible: .constant(true),
+            timeSignature: timeSignature
+        )
             .padding()
     }
 }

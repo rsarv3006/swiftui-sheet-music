@@ -18,8 +18,6 @@ struct MeasureBarlineUtil {
     let dotSize: CGFloat
     
     init(measureSpacing: MeasureSpacing) {
-    
-        
         let endPointArray = MeasureBarlineUtil.buildMeasureEndPointArray(measureBarVariant: measureSpacing.measureBarVariant, width: measureSpacing.width, line1YTop: measureSpacing.line1YTop, line5YBottom: measureSpacing.line5YBottom, lineHeight: measureSpacing.lineHeight)
         let startPointArray = MeasureBarlineUtil.buildMeasureStartPointArray(measureBarVariant: measureSpacing.measureBarVariant)
         

@@ -24,11 +24,7 @@ public struct MeasureSpacing {
     let line4YBottom: CGFloat
     let line5YBottom: CGFloat
     
-    let measureLine1PointArray: [CGPoint]
-    let measureLine2PointArray: [CGPoint]
-    let measureLine3PointArray: [CGPoint]
-    let measureLine4PointArray: [CGPoint]
-    let measureLine5PointArray: [CGPoint]
+    let staffLinesPointArray: [CGPoint]
     
     let measureHeight: CGFloat
     let clefHeight: CGFloat
@@ -68,11 +64,13 @@ public struct MeasureSpacing {
         let clefHeight = line4YTop - ledgerLineOffset
         self.clefHeight = clefHeight
         
-        self.measureLine1PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line1YTop, lineBottom: line1YBottom)
-        self.measureLine2PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line2YTop, lineBottom: line2YBottom)
-        self.measureLine3PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line3YTop, lineBottom: line3YBottom)
-        self.measureLine4PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line4YTop, lineBottom: line4YBottom)
-        self.measureLine5PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line5YTop, lineBottom: line5YBottom)
+        let measureLine1PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line1YTop, lineBottom: line1YBottom)
+        let measureLine2PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line2YTop, lineBottom: line2YBottom)
+        let measureLine3PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line3YTop, lineBottom: line3YBottom)
+        let measureLine4PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line4YTop, lineBottom: line4YBottom)
+        let measureLine5PointArray = MeasureSpacing.buildLinePointArray(width: width, lineTop: line5YTop, lineBottom: line5YBottom)
+        
+        self.staffLinesPointArray = measureLine1PointArray + measureLine2PointArray + measureLine3PointArray + measureLine4PointArray + measureLine5PointArray
         
         self.timeSignatureHeight = clefHeight * 2.8
         

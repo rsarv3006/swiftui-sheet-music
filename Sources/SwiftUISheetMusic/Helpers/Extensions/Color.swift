@@ -11,6 +11,6 @@ extension Color {
     static let ui = Color.UI()
     
     struct UI {
-         let black = Color(UIColor(red: 0, green: 0, blue: 0, alpha: 1))
+         let black = Color(red: 0, green: 0, blue: 0)
     }
 }

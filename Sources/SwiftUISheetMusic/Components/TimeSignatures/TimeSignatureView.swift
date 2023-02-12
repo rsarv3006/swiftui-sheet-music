@@ -6,42 +6,49 @@
 //
 
 import SwiftUI
+import MusicNotation
 
 struct TimeSignatureView: View {
     @Binding var height: CGFloat
-    @Binding var timeSignature: TimeSignature
+    @ObservedObject private var timeSignature: TimeSignature
     @Binding var xPosition: CGFloat
     @Binding var yPosition: CGFloat
     
-    init(height: Binding<CGFloat>, timeSignature: Binding<TimeSignature>, xPosition: Binding<CGFloat>, yPosition: Binding<CGFloat>) {
-        self._height = height
-        self._timeSignature = timeSignature
-        self._xPosition = xPosition
-        self._yPosition = yPosition
-    }
-    
-    init(measureSpacing: MeasureSpacing, isClefVisible: Binding<Bool>, timeSignature: Binding<TimeSignature>, numberOfKeySignatureSymbols: Int) {
+    init(measureSpacing: MeasureSpacing, isClefVisible: Binding<Bool>, numberOfKeySignatureSymbols: Binding<Int>, timeSignature: TimeSignature) {
         self._height = .constant(measureSpacing.timeSignatureHeight)
-        self._timeSignature = timeSignature
         
         let offSet = isClefVisible.wrappedValue ? 7 : 3
-        let xMultiplier = CGFloat(offSet + numberOfKeySignatureSymbols)
+        let xMultiplier = CGFloat(offSet + numberOfKeySignatureSymbols.wrappedValue)
         
         self._xPosition = .constant(measureSpacing.spacing * xMultiplier)
         
         self._yPosition = .constant(measureSpacing.line1YTop * 1.23)
+        self.timeSignature = timeSignature
+        
+    }
+    
+    private var topCodes: [String] {
+        get {
+            return TimeSignatureUtils.convertTimeSignatureToCodes(number: $timeSignature.topNumber.wrappedValue)
+        }
+    }
+    
+    private var bottomCodes: [String] {
+        get {
+            return TimeSignatureUtils.convertTimeSignatureToCodes(number: $timeSignature.bottomNumber.wrappedValue)
+        }
     }
     
     var body: some View {
         VStack (spacing: height * 0.25 * -1) {
-            HStack {
-                ForEach(timeSignature.topNumberCodes, id: \.self) { element in
+            HStack (spacing: 0) {
+                ForEach(topCodes, id: \.self) { element in
                     Text(element).font(Font.custom("Bravura", size: height / 2))
                         .frame(height: height / 2)
                 }
             }
-            HStack {
-                ForEach(timeSignature.bottomNumberCodes, id: \.self) { element in
+            HStack (spacing: 0) {
+                ForEach(bottomCodes, id: \.self) { element in
                     Text(element).font(Font.custom("Bravura", size: height / 2))
                         .frame(height: height / 2)
                 }
@@ -54,13 +61,11 @@ struct TimeSignatureView: View {
 }
 
 struct TimeSignatureView_Previews: PreviewProvider {
+    @StateObject static var timeSignature = TimeSignature(topNumber: -1, bottomNumber: 4, tempo: 120)
     static var previews: some View {
-        TimeSignatureView(height: .constant(256), timeSignature: .constant(TimeSignature(topNumberCodes: [TimeSignatureNumbersMap.Four], bottomNumberCodes: [TimeSignatureNumbersMap.Four])),
-                          xPosition: .constant(120),
-                          yPosition: .constant(120)
-        )
-        .onLoad {
-            SwiftUISheetMusic.registerFonts()
-        }
+        TimeSignatureView(measureSpacing: MeasureSpacing(width: 300), isClefVisible: .constant(true), numberOfKeySignatureSymbols: .constant(7), timeSignature: timeSignature)
+            .onLoad {
+                SwiftUISheetMusic.registerFonts()
+            }
     }
 }

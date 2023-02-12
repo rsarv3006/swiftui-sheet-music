@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-public func Asset(named name: String) -> Image? {
-    guard let uiImage = UIImage(named: name, in: Bundle.module, compatibleWith: nil) else { return nil }
-    
-    return Image(uiImage: uiImage).resizable()
+public func Asset(named name: String) -> Image? {    
+    return Image(name, bundle: Bundle.module).resizable()
 }
