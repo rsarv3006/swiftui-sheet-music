@@ -13,4 +13,5 @@ public enum MeasureBarlineVariant: String {
     case EndRepeatBar = "EndRepeatBar"
     case EndBar = "EndBar"
     case BeginRepeatBar = "BeginRepeatBar"
+    case BegingAndEndRepeatBars = "BegingAndEndRepeatBars"
 }

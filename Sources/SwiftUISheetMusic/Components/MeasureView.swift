@@ -15,13 +15,6 @@ public struct MeasureView: View {
     @Binding private var isClefVisible: Bool
     @ObservedObject private var timeSignature: TimeSignature
     
-    private var timeSignatureXPostionMultiplier: CGFloat {
-        get {
-            let offSet = isClefVisible ? 7 : 3
-            return CGFloat(offSet + keySignatureToShow.numberOfSymbols)
-        }
-    }
-    
     public init(clefToShow: Binding<ClefNameVariant>, measureBarVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, timeSignature: TimeSignature) {
         self._clefToShow = clefToShow
         self._measureBarVariant = measureBarVariant

@@ -24,7 +24,7 @@ struct MeasureBarlines: View {
             }
             .foregroundColor(Color.ui.black)
             
-            if measureBarVariant == .EndRepeatBar {
+            if measureBarVariant == .EndRepeatBar || measureBarVariant == .BegingAndEndRepeatBars {
                 Circle()
                     .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
                     .foregroundColor(Color.ui.black)
@@ -50,5 +50,8 @@ struct MeasureBarlines_Previews: PreviewProvider {
             timeSignature: timeSignature
         )
             .padding()
+            .onLoad {
+                SwiftUISheetMusic.registerFonts()
+            }
     }
 }

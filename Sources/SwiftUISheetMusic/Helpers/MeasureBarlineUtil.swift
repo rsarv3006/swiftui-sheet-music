@@ -18,10 +18,7 @@ struct MeasureBarlineUtil {
     let dotSize: CGFloat
     
     init(measureSpacing: MeasureSpacing) {
-        let endPointArray = MeasureBarlineUtil.buildMeasureEndPointArray(measureBarVariant: measureSpacing.measureBarVariant, width: measureSpacing.width, line1YTop: measureSpacing.line1YTop, line5YBottom: measureSpacing.line5YBottom, lineHeight: measureSpacing.lineHeight)
-        let startPointArray = MeasureBarlineUtil.buildMeasureStartPointArray(measureBarVariant: measureSpacing.measureBarVariant)
-        
-        pointsArray = endPointArray + startPointArray
+        pointsArray = MeasureBarlineUtil.buildMeasureBarlinePointArray(measureBarVariant: measureSpacing.measureBarVariant, width: measureSpacing.width, line1YTop: measureSpacing.line1YTop, line5YBottom: measureSpacing.line5YBottom, lineHeight: measureSpacing.lineHeight)
         
         endRepeatBarOffset = MeasureBarlineUtil.calculateEndRepeatBarDotOffset(width: measureSpacing.width, lineHeight: measureSpacing.lineHeight)
         
@@ -39,26 +36,10 @@ struct MeasureBarlineUtil {
         return thinBarOffset - lineHeight * CGFloat(4)
     }
     
-    private static func buildMeasureEndPointArray(measureBarVariant: MeasureBarlineVariant, width: CGFloat, line1YTop: CGFloat, line5YBottom: CGFloat, lineHeight: CGFloat) -> [CGPoint] {
+    private static func buildMeasureBarlinePointArray(measureBarVariant: MeasureBarlineVariant, width: CGFloat, line1YTop: CGFloat, line5YBottom: CGFloat, lineHeight: CGFloat) -> [CGPoint] {
         switch measureBarVariant {
         case .EndRepeatBar:
-            let wideBarOffset = width - lineHeight * CGFloat(4)
-            let spaceOffset = wideBarOffset - lineHeight * CGFloat(3)
-            let thinBarOffset = spaceOffset - lineHeight
-            
-            return [
-                CGPoint(x: wideBarOffset, y: line1YTop),
-                CGPoint(x: width, y: line1YTop),
-                CGPoint(x: width, y: line5YBottom),
-                CGPoint(x: wideBarOffset, y: line5YBottom),
-                CGPoint(x: wideBarOffset, y: line1YTop),
-                
-                CGPoint(x: thinBarOffset, y: line1YTop),
-                CGPoint(x: spaceOffset, y: line1YTop),
-                CGPoint(x: spaceOffset, y: line5YBottom),
-                CGPoint(x: thinBarOffset, y: line5YBottom),
-                CGPoint(x: thinBarOffset, y: line1YTop),
-            ]
+            return createEndRepeatBarPointsArray(width: width, line1YTop: line1YTop, line5YBottom: line5YBottom, lineHeight: lineHeight)
         case .SingleBar:
             return [
                 CGPoint(x: width - lineHeight, y: line1YTop),
@@ -104,15 +85,35 @@ struct MeasureBarlineUtil {
                 CGPoint(x: thinBarOffset, y: line1YTop),
             ]
         case .BeginRepeatBar:
-            fatalError("Not Implemented")
-            
+            return []
+        case .BegingAndEndRepeatBars:
+            let endRepeatArray = createEndRepeatBarPointsArray(width: width, line1YTop: line1YTop, line5YBottom: line5YBottom, lineHeight: lineHeight)
+            let beginRepeatArray = createBeginRepeatBarPointsArray()
+            return endRepeatArray + beginRepeatArray
         }
     }
     
-    private static func buildMeasureStartPointArray(measureBarVariant: MeasureBarlineVariant) -> [CGPoint] {
-        if measureBarVariant == .BeginRepeatBar {
-            fatalError("Begin repeat not implemented")
-        }
+    private static func createEndRepeatBarPointsArray(width: CGFloat, line1YTop: CGFloat, line5YBottom: CGFloat, lineHeight: CGFloat) -> [CGPoint] {
+        let wideBarOffset = width - lineHeight * CGFloat(4)
+        let spaceOffset = wideBarOffset - lineHeight * CGFloat(3)
+        let thinBarOffset = spaceOffset - lineHeight
+        
+        return [
+            CGPoint(x: wideBarOffset, y: line1YTop),
+            CGPoint(x: width, y: line1YTop),
+            CGPoint(x: width, y: line5YBottom),
+            CGPoint(x: wideBarOffset, y: line5YBottom),
+            CGPoint(x: wideBarOffset, y: line1YTop),
+            
+            CGPoint(x: thinBarOffset, y: line1YTop),
+            CGPoint(x: spaceOffset, y: line1YTop),
+            CGPoint(x: spaceOffset, y: line5YBottom),
+            CGPoint(x: thinBarOffset, y: line5YBottom),
+            CGPoint(x: thinBarOffset, y: line1YTop),
+        ]
+    }
+    
+    private static func createBeginRepeatBarPointsArray() -> [CGPoint] {
         return []
     }
 }
