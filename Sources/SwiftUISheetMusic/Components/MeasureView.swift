@@ -40,7 +40,7 @@ public struct MeasureView: View {
                     
                     KeySignatureView(measureSpacing: measureSpacing, clefNameVariant: $clefToShow, selectedKeySignature: $keySignatureToShow, isClefVisible: $isClefVisible)
                     
-                    MeasureBarlines(measureSpacing: measureSpacing)
+                    MeasureBarlines(measureSpacing: measureSpacing, isClefVisible: $isClefVisible, numberOfKeySignatureSymbols: $keySignatureToShow.numberOfSymbols)
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
         }
@@ -52,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack (spacing: 0) {
-                MeasureView(clefToShow: .constant(.TrebleClef), measureBarVariant: .constant(.SingleBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true), timeSignature: timeSignature
+                MeasureView(clefToShow: .constant(.TrebleClef), measureBarVariant: .constant(.BegingAndEndRepeatBars), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true), timeSignature: timeSignature
                 )
                 MeasureView(clefToShow: .constant(.BassClef), measureBarVariant: .constant(.EndBar), keySignatureToShow: .constant(KeySignatures.ASharpMinor), isClefVisible: .constant(true), timeSignature: timeSignature
                 )
