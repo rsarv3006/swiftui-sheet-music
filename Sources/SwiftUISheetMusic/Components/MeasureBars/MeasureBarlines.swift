@@ -20,6 +20,27 @@ struct MeasureBarlines: View {
         self.measureBarVariant = measureSpacing.measureBarVariant
     }
     
+    private var beginRepeatDots: some View {
+        ZStack {
+            Circle()
+                .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+                .foregroundColor(Color.ui.black)
+            Circle()
+                .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+        }
+    }
+    
+    private var endRepeatBarDots: some View {
+        ZStack {
+            Circle()
+                .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+                .foregroundColor(Color.ui.black)
+            Circle()
+                .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+                .foregroundColor(Color.ui.black)
+        }
+    }
+    
     var body: some View {
         ZStack {
             Path { path in
@@ -28,31 +49,13 @@ struct MeasureBarlines: View {
             .foregroundColor(Color.ui.black)
             
             if measureBarVariant == .EndRepeatBar {
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.ui.black)
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.ui.black)
+                endRepeatBarDots
             } else if measureBarVariant == .BegingAndEndRepeatBars {
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.ui.black)
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.endRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.ui.black)
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+                endRepeatBarDots
+                beginRepeatDots
                 
             } else if measureBarVariant == .BeginRepeatBar {
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotOneYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
-                    .foregroundColor(Color.ui.black)
-                Circle()
-                    .path(in: CGRect(x: measureBarlineUtil.beginRepeatBarOffset, y: measureBarlineUtil.dotTwoYOffset, width: measureBarlineUtil.dotSize, height: measureBarlineUtil.dotSize))
+                beginRepeatDots
             }
         }
     }
