@@ -27,6 +27,8 @@ public struct MeasureView: View {
         GeometryReader { geometry in
             let width = geometry.size.width
             let measureSpacing = MeasureSpacing(width: width, spacing:8, measureBarVariant: measureBarVariant)
+            let measureNoteAlignment = MeasureNoteAlignment(measureSpacing: measureSpacing)
+            
             VStack {
                 ZStack {
                     Path { path in
