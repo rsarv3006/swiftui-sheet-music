@@ -43,9 +43,19 @@ public struct MeasureView: View {
                     KeySignatureView(measureSpacing: measureSpacing, clefNameVariant: $clefToShow, selectedKeySignature: $keySignatureToShow, isClefVisible: $isClefVisible)
                     
                     MeasureBarlines(measureSpacing: measureSpacing, isClefVisible: $isClefVisible, numberOfKeySignatureSymbols: $keySignatureToShow.numberOfSymbols)
+                    
+                    WholeNote(height: .constant(measureNoteAlignment.wholeNoteHeight), xPosition: .constant(measureSpacing.spacing * 24), yPosition: .constant(measureNoteAlignment.space5YPosition))
                 }
             }.frame(width: width, height: measureSpacing.measureHeight)
         }
+    }
+}
+
+public struct MyView: View {
+    public init() {}
+
+    public var body: some View {
+        Text("Hello, world!")
     }
 }
 

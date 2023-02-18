@@ -44,12 +44,3 @@ struct SharpsThree: View {
     }
     
 }
-
-struct SharpsThree_Previews: PreviewProvider {
-    static var previews: some View {
-        SharpsThree(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-}
-
-
-

@@ -44,10 +44,3 @@ struct SharpsSeven: View {
     }
     
 }
-
-struct SharpsSeven_Previews: PreviewProvider {
-    static var previews: some View {
-        SharpsSeven(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-
-}

@@ -42,9 +42,3 @@ struct FlatsThree: View {
         }
     }
 }
-
-struct FlatsThree_Previews: PreviewProvider {    
-    static var previews: some View {
-        FlatsThree(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-}

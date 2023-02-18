@@ -41,9 +41,3 @@ struct FlatsOne: View {
     }
     
 }
-
-struct FlatsOne_Previews: PreviewProvider {    
-    static var previews: some View {
-        FlatsOne(measureSpacing: MeasureSpacing(width: 300), clef: .AltoClef)
-    }
-}

@@ -41,10 +41,3 @@ struct SharpsOne: View {
     }
     
 }
-
-struct SharpsOne_Previews: PreviewProvider {
-    static var previews: some View {
-        SharpsOne(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-}
-

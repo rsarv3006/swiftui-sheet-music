@@ -42,10 +42,3 @@ struct FlatsFour: View {
         }
     }
 }
-
-struct FlatsFour_Previews: PreviewProvider {    
-    static var previews: some View {
-        FlatsFour(measureSpacing: MeasureSpacing(width: 300), clef: .TenorClef)
-    }
-}
-

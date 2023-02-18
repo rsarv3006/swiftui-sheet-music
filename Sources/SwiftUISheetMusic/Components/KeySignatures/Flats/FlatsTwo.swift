@@ -42,9 +42,3 @@ struct FlatsTwo: View {
         }
     }
 }
-
-struct FlatsTwo_Previews: PreviewProvider {
-    static var previews: some View {
-        FlatsTwo(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-}

@@ -42,11 +42,3 @@ struct FlatsFive: View {
         }
     }
 }
-
-struct FlatsFive_Previews: PreviewProvider {
-    static var previews: some View {
-        FlatsFive(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-}
-
-

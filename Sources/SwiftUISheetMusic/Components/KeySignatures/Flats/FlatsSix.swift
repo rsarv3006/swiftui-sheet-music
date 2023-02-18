@@ -42,9 +42,3 @@ struct FlatsSix: View {
         }
     }
 }
-
-struct FlatsSix_Previews: PreviewProvider {
-    static var previews: some View {
-        FlatsSix(measureSpacing: MeasureSpacing(width: 300), clef: .TrebleClef)
-    }
-}

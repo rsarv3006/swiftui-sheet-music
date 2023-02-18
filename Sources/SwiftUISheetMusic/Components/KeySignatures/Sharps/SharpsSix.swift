@@ -42,10 +42,3 @@ struct SharpsSix: View {
         }
     }
 }
-
-struct SharpsSix_Previews: PreviewProvider {
-    static var previews: some View {
-        SharpsSix(measureSpacing: MeasureSpacing(width: 300), clef: .BassClef)
-    }
-    
-}
