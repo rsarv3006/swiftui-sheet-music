@@ -18,12 +18,3 @@ struct NaturalSignNotation: View {
         Text("\u{266E}").font(Font.custom("Bravura", size: height * 1.5))
     }
 }
-
-struct NaturalSignNotation_Previews: PreviewProvider {
-    static var previews: some View {
-        NaturalSignNotation(height: 140)
-            .onLoad {
-                SwiftUISheetMusic.registerFonts()
-            }
-    }
-}

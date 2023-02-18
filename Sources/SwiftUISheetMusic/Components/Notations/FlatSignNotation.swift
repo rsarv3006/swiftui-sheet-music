@@ -18,12 +18,3 @@ struct FlatSignNotation: View {
         Text("\u{266D}").font(Font.custom("Bravura", size: height * 2))
     }
 }
-
-struct FlatSignNotation_Previews: PreviewProvider {
-    static var previews: some View {
-        FlatSignNotation(height: 140)
-            .onLoad {
-                SwiftUISheetMusic.registerFonts()
-            }
-    }
-}

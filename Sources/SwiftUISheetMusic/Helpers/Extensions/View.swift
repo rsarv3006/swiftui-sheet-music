@@ -8,7 +8,6 @@
 import SwiftUI
 
 private struct LogicLoader<T>: View where T: View {
-    
     private var content: T
     
     init(_ closure: () -> Void, content: T) {

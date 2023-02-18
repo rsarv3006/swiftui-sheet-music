@@ -18,12 +18,3 @@ struct SharpSignNotation: View {
         Text("\u{266F}").font(Font.custom("Bravura", size: height * 1.5))
     }
 }
-
-struct SharpSignNotation_Previews: PreviewProvider {
-    static var previews: some View {
-        SharpSignNotation(height: 140)
-            .onLoad {
-                SwiftUISheetMusic.registerFonts()
-            }
-    }
-}

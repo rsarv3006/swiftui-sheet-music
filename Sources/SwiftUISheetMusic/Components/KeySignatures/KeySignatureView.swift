@@ -92,9 +92,3 @@ struct KeySignatureView: View {
         }
     }
 }
-
-struct KeySignatureView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeySignatureView(measureSpacing: MeasureSpacing(width: 300), clefNameVariant: .constant(.BassClef), selectedKeySignature: .constant(KeySignatures.FMajor), isClefVisible: .constant(false))
-    }
-}

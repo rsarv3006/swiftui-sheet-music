@@ -34,9 +34,3 @@ struct ClefViewForMeasure: View {
         }
     }
 }
-
-struct ClefViewForMeasure_Previews: PreviewProvider {
-    static var previews: some View {
-        ClefViewForMeasure(clefToShow: .BassClef, measureSpacing: MeasureSpacing(width: 300), isClefVisible: true)
-    }
-}
