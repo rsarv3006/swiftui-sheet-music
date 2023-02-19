@@ -11,7 +11,7 @@ import SwiftUI
 
 @testable import SwiftUISheetMusic
 
-final class KeySignatureTests: XCTestCase {
+final class KeySignatureViewTests: XCTestCase {
     let measureSpacing = MeasureSpacing(width: 300)
     
     func testFlatSignNotation() throws {
