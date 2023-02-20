@@ -35,30 +35,12 @@ public struct SheetMusicView: View {
     @ObservedObject var timeSignature: TimeSignature
     @ObservedObject var score: Score
     
-    private var firstPart: Part {
-        get {
-            let firstPart = score.first { part in
-                print("part name: \(part.name)")
-                return true
-            }
-            return firstPart!
-        }
-    }
-    
-    private var testStave: Staff {
-        get {
-            let staveFirstIndex = firstPart.startIndex
-            let stave = firstPart[staveFirstIndex]
-            return stave
-        }
-    }
-    
-    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, timeSignature: TimeSignature, score: Score) {
+    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, score: Score) {
         self._clefToShow = clefToShow
         self._measureBarlineVariant = measureBarlineVariant
         self._keySignatureToShow = keySignatureToShow
         self._isClefVisible = isClefVisible
-        self.timeSignature = timeSignature
+        self.timeSignature = (try? score.parts.first?.staves.first?.measure(at: 0).timeSignature)!
         self.score = score
         SwiftUISheetMusic.registerFonts()
     }
@@ -66,6 +48,6 @@ public struct SheetMusicView: View {
     public var body: some View {
         MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, timeSignature: timeSignature)
             .background(Color.white)
-        Text("\(firstPart.name) - \(firstPart.debugDescription) - \(score.title) - \(testStave.debugDescription)")
+        Text("\(score.parts[0].staves[0].debugDescription)")
     }
 }

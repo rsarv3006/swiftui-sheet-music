@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rsarv3006/music-notation",
       "state" : {
-        "branch" : "main",
-        "revision" : "bd41e2a5b4949e3e68bab7b21851a5c0d7e9524d"
+        "branch" : "swiftui",
+        "revision" : "48ab1b390bedc199c8aece3487567637f915db90"
+      }
+    },
+    {
+      "identity" : "viewinspector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nalexn/ViewInspector",
+      "state" : {
+        "revision" : "4effbd9143ab797eb60d2f32d4265c844c980946",
+        "version" : "0.9.5"
       }
     }
   ],
