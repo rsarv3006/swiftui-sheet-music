@@ -23,8 +23,7 @@ public struct SwiftUISheetMusic {
         CTFontManagerRegisterGraphicsFont(font, &error)
     }
     
-    public init() {
-    }
+    public init() {}
 }
 
 public struct SheetMusicView: View {
@@ -32,7 +31,6 @@ public struct SheetMusicView: View {
     @Binding var measureBarlineVariant: MeasureBarlineVariant
     @Binding var keySignatureToShow: KeySignature
     @Binding var isClefVisible: Bool
-    @ObservedObject var timeSignature: TimeSignature
     @ObservedObject var score: Score
     
     public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, score: Score) {
@@ -40,14 +38,17 @@ public struct SheetMusicView: View {
         self._measureBarlineVariant = measureBarlineVariant
         self._keySignatureToShow = keySignatureToShow
         self._isClefVisible = isClefVisible
-        self.timeSignature = (try? score.parts.first?.staves.first?.measure(at: 0).timeSignature)!
         self.score = score
         SwiftUISheetMusic.registerFonts()
     }
     
     public var body: some View {
-        MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, timeSignature: timeSignature)
-            .background(Color.white)
-        Text("\(score.parts[0].staves[0].debugDescription)")
+        HStack (spacing: 0) {
+            ForEach(score.parts[0].staves[0].notesHolders, id: \.debugDescription) { measure in
+                MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, measure: measure as! ImmutableMeasure)
+                    .background(Color.white)
+            }
+        }
+        Text("\((try! score.parts[0].staves[0].measure(at: 0)).originalClef!.debugDescription)")
     }
 }

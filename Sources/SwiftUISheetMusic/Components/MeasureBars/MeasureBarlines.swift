@@ -65,14 +65,15 @@ struct MeasureBarlines_Previews: PreviewProvider {
     @State static var clefToShow: ClefNameVariant = .BassClef
     @State static var measureBarVariant: MeasureBarlineVariant = .BeginRepeatBar
     @State static var keySignatureToShow: KeySignature = KeySignatures.EFlatMajor
-    @StateObject static var timeSignature: TimeSignature = TimeSignature(topNumber: 4, bottomNumber: 4, tempo: 120)
+    static let measure = Measure(timeSignature: TimeSignature(topNumber: 4, bottomNumber: 4, tempo: 120))
+    
     static var previews: some View {
         MeasureView(
             clefToShow: $clefToShow,
             measureBarVariant: $measureBarVariant,
             keySignatureToShow: $keySignatureToShow,
             isClefVisible: .constant(true),
-            timeSignature: timeSignature
+            measure: measure
         )
             .padding()
             .onLoad {
