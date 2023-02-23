@@ -22,7 +22,7 @@ struct ClefViewForMeasure: View {
         if !isClefVisible {
             EmptyView()
         } else if clefToShow == .BassClef {
-            BassClef(measureSpacing: measureSpacing)
+            BassClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .TrebleClef {
             TrebleClef(measureSpacing: measureSpacing)
         } else if clefToShow == .TenorClef {
