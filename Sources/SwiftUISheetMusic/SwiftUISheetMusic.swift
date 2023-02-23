@@ -44,7 +44,9 @@ public struct SheetMusicView: View {
     
     public var body: some View {
         HStack (spacing: 0) {
-            ForEach(score.parts[0].staves[0].notesHolders, id: \.debugDescription) { measure in
+            let measureCount = score.parts[0].staves[0].measureCount
+            
+            ForEach(Array(score.parts[0].staves[0].notesHolders.enumerated()), id: \.element.debugDescription) { index, measure in
                 MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, measure: measure as! ImmutableMeasure)
                     .background(Color.white)
             }

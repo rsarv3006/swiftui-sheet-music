@@ -28,7 +28,7 @@ struct ClefViewForMeasure: View {
         } else if clefToShow == .TenorClef {
             TenorClef(measureSpacing: measureSpacing)
         } else if clefToShow == .AltoClef {
-            AltoClef(measureSpacing: measureSpacing)
+            AltoClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .PercussionClef {
             PercussionClef(measureSpacing: measureSpacing)
         }
