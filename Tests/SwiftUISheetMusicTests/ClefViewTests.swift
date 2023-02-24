@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import ViewInspector
 @testable import SwiftUISheetMusic
 
 final class ClefViewTests: XCTestCase {
@@ -34,6 +35,16 @@ final class ClefViewTests: XCTestCase {
         XCTAssertEqual(value, "\u{E050}")
     }
     
+    func testClefViewForMeasureClefIsVisible() throws {
+        let sut = ClefViewForMeasure(clefToShow: .BassClef, measureSpacing: MeasureSpacing(width: 300), isClefVisible: true)
+        let value = try sut.inspect().view(ClefViewForMeasure.self).view(BassClefView.self).text().string()
+        XCTAssertEqual(value, "\u{E062}")
+    }
     
+    func testClefViewForMeasureClefIsNotVisible() throws {
+        let sut = ClefViewForMeasure(clefToShow: .BassClef, measureSpacing: MeasureSpacing(width: 300), isClefVisible: false)
+        let _ = try sut.inspect().view(ClefViewForMeasure.self).find(ViewType.EmptyView.self)
+        
+    }
 
 }
