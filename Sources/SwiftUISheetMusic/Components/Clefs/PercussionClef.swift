@@ -15,10 +15,9 @@ struct PercussionClef: View {
     }
     
     var body: some View {
-        Asset(named: ClefNameVariant.PercussionClef.rawValue)
-            .scaledToFit()
-            .frame(height: measureSpacing.clefHeight - measureSpacing.spacing * 1.15)
-            .position(x: measureSpacing.spacing * 2, y: measureSpacing.line3YTop * 1.008)
+        Text("\u{E069}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing)).foregroundColor(.ui.black)
+            .position(x: measureSpacing.spacing * 2, y: measureSpacing.line3YBottom)
+
     }
 }
 

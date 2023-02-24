@@ -14,6 +14,7 @@ struct WholeNote: View {
     
     var body: some View {
         Text("\u{ECA2}").font(Font.custom("Bravura", size: height * 2))
+            .foregroundColor(.ui.black)
             .position(x: xPosition, y: yPosition)
             
     }

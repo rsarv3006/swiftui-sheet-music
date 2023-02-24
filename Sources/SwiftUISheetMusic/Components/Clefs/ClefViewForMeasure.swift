@@ -19,14 +19,14 @@ struct ClefViewForMeasure: View {
     }
     
     var body: some View {
-        if !isClefVisible {
+        if !isClefVisible || clefToShow == .none {
             EmptyView()
         } else if clefToShow == .BassClef {
             BassClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .TrebleClef {
-            TrebleClef(measureSpacing: measureSpacing)
+            TrebleClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .TenorClef {
-            TenorClef(measureSpacing: measureSpacing)
+            TenorClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .AltoClef {
             AltoClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .PercussionClef {

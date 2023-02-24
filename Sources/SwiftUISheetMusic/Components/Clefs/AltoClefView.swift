@@ -15,7 +15,7 @@ struct AltoClefView: View {
     }
     
     var body: some View {
-        Text("\u{E05C}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing))
+        Text("\u{E05C}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing)).foregroundColor(.ui.black)
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line3YBottom)
     }
 }

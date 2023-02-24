@@ -44,12 +44,14 @@ struct TimeSignatureView: View {
             HStack (spacing: 0) {
                 ForEach(topCodes, id: \.self) { element in
                     Text(element).font(Font.custom("Bravura", size: height / 2))
+                        .foregroundColor(.ui.black)
                         .frame(height: height / 2)
                 }
             }
             HStack (spacing: 0) {
                 ForEach(bottomCodes, id: \.self) { element in
                     Text(element).font(Font.custom("Bravura", size: height / 2))
+                        .foregroundColor(.ui.black)
                         .frame(height: height / 2)
                 }
             }

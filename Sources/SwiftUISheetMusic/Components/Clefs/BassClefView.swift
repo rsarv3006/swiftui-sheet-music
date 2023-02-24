@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Robert J. Sarvis Jr on 1/31/23.
-// E062
+//
 
 import SwiftUI
 
@@ -15,7 +15,7 @@ struct BassClefView: View {
     }
     
     var body: some View {
-        Text("\u{E062}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing))
+        Text("\u{E062}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing)).foregroundColor(.ui.black)
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line2YBottom)
     }
 }

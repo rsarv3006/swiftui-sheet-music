@@ -15,6 +15,6 @@ struct SharpSignNotation: View {
     }
     
     var body: some View {
-        Text("\u{266F}").font(Font.custom("Bravura", size: height * 1.5))
+        Text("\u{266F}").font(Font.custom("Bravura", size: height * 1.5)).foregroundColor(.ui.black)
     }
 }

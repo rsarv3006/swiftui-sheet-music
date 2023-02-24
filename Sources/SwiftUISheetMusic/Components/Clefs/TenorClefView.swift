@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TenorClef: View {
+struct TenorClefView: View {
     private let measureSpacing: MeasureSpacing
     
     init(measureSpacing: MeasureSpacing) {
@@ -15,15 +15,13 @@ struct TenorClef: View {
     }
     
     var body: some View {
-        Asset(named: ClefNameVariant.TenorClef.rawValue)
-            .scaledToFit()
-            .frame(height: measureSpacing.clefHeight + measureSpacing.spacing * 1.5)
+        Text("\u{E05C}").font(Font.custom("Bravura", size: measureSpacing.clefHeight + measureSpacing.spacing)).foregroundColor(.ui.black)
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line2YTop)
     }
 }
 
-struct TenorClef_Previews: PreviewProvider {
+struct TenorClefView_Previews: PreviewProvider {
     static var previews: some View {
-        TenorClef(measureSpacing: MeasureSpacing(width: 300))
+        TenorClefView(measureSpacing: MeasureSpacing(width: 300))
     }
 }

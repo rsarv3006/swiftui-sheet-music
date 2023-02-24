@@ -14,6 +14,7 @@ struct QuarterNote: View {
     
     var body: some View {
         Text("\u{ECA6}").font(Font.custom("Bravura", size: height * 2))
+            .foregroundColor(.ui.black)
             .position(x: xPosition, y: yPosition)
             
     }

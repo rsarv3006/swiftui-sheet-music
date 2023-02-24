@@ -15,6 +15,6 @@ struct FlatSignNotation: View {
     }
     
     var body: some View {
-        Text("\u{266D}").font(Font.custom("Bravura", size: height * 2))
+        Text("\u{266D}").font(Font.custom("Bravura", size: height * 2)).foregroundColor(.ui.black)
     }
 }
