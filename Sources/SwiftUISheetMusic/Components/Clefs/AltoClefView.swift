@@ -19,9 +19,3 @@ struct AltoClefView: View {
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line3YBottom)
     }
 }
-
-struct AltoClefView_Previews: PreviewProvider {
-    static var previews: some View {
-        AltoClefView(measureSpacing: MeasureSpacing(width: 300))
-    }
-}

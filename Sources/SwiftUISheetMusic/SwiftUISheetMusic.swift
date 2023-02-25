@@ -31,14 +31,16 @@ public struct SheetMusicView: View {
     @Binding var measureBarlineVariant: MeasureBarlineVariant
     @Binding var keySignatureToShow: KeySignature
     @Binding var isClefVisible: Bool
+    @Binding private var isTimeSignatureVisible: Bool
     @ObservedObject var score: Score
     
-    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, score: Score) {
+    public init(clefToShow: Binding<ClefNameVariant>, measureBarlineVariant: Binding<MeasureBarlineVariant>, keySignatureToShow: Binding<KeySignature>, isClefVisible: Binding<Bool>, score: Score, isTimeSignatureVisible: Binding<Bool>) {
         self._clefToShow = clefToShow
         self._measureBarlineVariant = measureBarlineVariant
         self._keySignatureToShow = keySignatureToShow
         self._isClefVisible = isClefVisible
         self.score = score
+        self._isTimeSignatureVisible = isTimeSignatureVisible
         SwiftUISheetMusic.registerFonts()
     }
     
@@ -47,7 +49,7 @@ public struct SheetMusicView: View {
             let measureCount = score.parts[0].staves[0].measureCount
             
             ForEach(Array(score.parts[0].staves[0].notesHolders.enumerated()), id: \.element.debugDescription) { index, measure in
-                MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, measure: measure as! ImmutableMeasure)
+                MeasureView(clefToShow: $clefToShow, measureBarVariant: $measureBarlineVariant, keySignatureToShow: $keySignatureToShow, isClefVisible: $isClefVisible, measure: measure as! ImmutableMeasure, isTimeSignatureVisible: $isTimeSignatureVisible)
                     .background(Color.white)
             }
         }

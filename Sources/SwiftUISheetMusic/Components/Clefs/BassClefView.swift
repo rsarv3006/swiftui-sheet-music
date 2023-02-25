@@ -19,9 +19,3 @@ struct BassClefView: View {
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line2YBottom)
     }
 }
-
-struct BassClefView_Previews: PreviewProvider {
-    static var previews: some View {
-        BassClefView(measureSpacing: MeasureSpacing(width: 300))
-    }
-}

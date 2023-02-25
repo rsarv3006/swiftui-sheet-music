@@ -30,7 +30,7 @@ struct ClefViewForMeasure: View {
         } else if clefToShow == .AltoClef {
             AltoClefView(measureSpacing: measureSpacing)
         } else if clefToShow == .PercussionClef {
-            PercussionClef(measureSpacing: measureSpacing)
+            PercussionClefView(measureSpacing: measureSpacing)
         }
     }
 }

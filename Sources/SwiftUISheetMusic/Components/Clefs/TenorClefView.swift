@@ -19,9 +19,3 @@ struct TenorClefView: View {
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line2YTop)
     }
 }
-
-struct TenorClefView_Previews: PreviewProvider {
-    static var previews: some View {
-        TenorClefView(measureSpacing: MeasureSpacing(width: 300))
-    }
-}

@@ -19,9 +19,3 @@ struct TrebleClefView: View {
             .position(x: measureSpacing.spacing * 2, y: measureSpacing.line4YTop)
     }
 }
-
-struct TrebleClefView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrebleClefView(measureSpacing: MeasureSpacing(width: 300))
-    }
-}

@@ -73,7 +73,8 @@ struct MeasureBarlines_Previews: PreviewProvider {
             measureBarVariant: $measureBarVariant,
             keySignatureToShow: $keySignatureToShow,
             isClefVisible: .constant(true),
-            measure: measure
+            measure: measure,
+            isTimeSignatureVisible: .constant(true)
         )
             .padding()
             .onLoad {
